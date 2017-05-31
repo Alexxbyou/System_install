@@ -1,0 +1,24 @@
+##cuda install :https://yangcha.github.io/GTX-1080/ 
+sudo apt install nvidia-cuda-toolkit
+nvcc --version
+sudo dpkg -i cuda-repo-ubuntu1604_8.0.44-1_amd64.deb
+sudo apt-get update
+sudo apt-get install cuda
+
+##Graphic card driver
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt-get update
+sudo apt-get install nvidia-367
+sudo apt-get install mesa-common-dev
+sudo apt-get install freeglut3-dev
+
+
+# install input method
+## install chinese first
+System Settings–>Language Support–>Install/Remove Languages
+ sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4
+im-config -s ibus
+sudo apt-get install ibus-pinyin
+ibus restart
+sudo ibus-setup
+

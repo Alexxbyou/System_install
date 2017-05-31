@@ -1,0 +1,63 @@
+##############################################
+## install Shiny Server Pro
+##############################################
+
+# install R
+sudo apt-get install r-base
+
+# install shiny package
+sudo su - \
+-c "R -e \"install.packages('shiny', repos='https://cran.rstudio.com/')\""
+
+# install R Shiny Server Pro
+sudo apt-get install gdebi-core
+wget https://s3.amazonaws.com/rstudio-shiny-server-pro-build/ubuntu-12.04/x86_64/shiny-server-commercial-1.5.3.770-amd64.deb
+sudo gdebi shiny-server-commercial-1.5.3.770-amd64.deb
+
+# Activation
+
+
+
+##############################################
+## Server status
+##############################################
+# Stopping and Starting
+sudo systemctl start shiny-server
+sudo systemctl stop shiny-server
+sudo systemctl restart shiny-server
+
+# reload configuration
+sudo systemctl kill -s HUP --kill-who=main shiny-server
+
+#check
+sudo systemctl status shiny-server
+
+# enable/disable shiny-server
+sudo systemctl enable shiny-server
+sudo systemctl disable shiny-server
+
+
+
+
+##############################################
+## Server Management
+##############################################
+sudo gedit /etc/shiny-server/shiny-server.conf
+
+
+# default address
+/opt/shiny-server/samples
+if use <ip address>:3838, the welcome.html will show in browser
+
+if want to access specific shiny apps under samples folder, than go to
+/opt/shiny-server/samples/sample-apps/<app name>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-5.5 mysql-client-core-5.5
+sudo rm -rf /etc/mysql /var/lib/mysql
+sudo apt-get autoremove
+sudo apt-get autoclean
+
+
+
+sudo apt-get update
+sudo apt-get install mysql-server
+sudo mysql_secure_installation
+
+
+mysql -p -u root
+8877
+
+
+
+
+
+sudo systemctl stop mysql
+
+sudo systemctl status mysql
+
+
+sudo rsync -av /var/lib/mysql /media/alex/DATAF
+
+sudo mv /var/lib/mysql /var/lib/mysql.bak
+
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+
+sudo nano /etc/apparmor.d/tunables/alias
+. . .
+alias /var/lib/mysql/ -> /media/alex/DATAF/mysql/,
+. . .
+
+
+sudo systemctl restart apparmor
+
+sudo mkdir /var/lib/mysql/mysql -p
+
+sudo tail /var/log/syslog
+
+chown -R mysql:mysql /media/alex/DATAF/mysql/
+
+sudo systemctl start mysql
+sudo systemctl status mysql
+
+
+#############################################
+# Uninstall mysql
+sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-5.5 mysql-client-core-5.5
+sudo rm -rf /etc/mysql /var/lib/mysql
+sudo apt-get autoremove
+sudo apt-get autoclean
+
+
+
+
+
+apt-get install mysql-server
+service mysql stop
+mv /var/lib/mysql /mnt/mydata/
+replace /var/lib/mysql with /mnt/mydata/mysql in
+        /etc/passwd – mysql
+        /etc/mysql/my.cnf – [mysqld] datadir
+        /etc/apparmor.d/usr.sbin.mysqld (twice)
+service mysql start
+

@@ -1,0 +1,12 @@
+download: 
+https://veracrypt.codeplex.com/wikipage?title=Downloads
+
+install tutorial:
+www.linuxandubuntu.com/home/encrypt-data-in-linux-with-veracrypt-an-alternative-to-truecrypt
+
+dmsetup problem:
+sudo apt-get install dmsetup
+
+
+ex-fat problem:
+sudo apt-get install exfat-fuse exfat-utils
