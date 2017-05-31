@@ -1,0 +1,17 @@
+cd '<dir>'
+
+# initialization
+git init
+
+# add files
+git add .
+git add index.html,test.html
+
+# add comment
+git commit -m "init commit"
+
+# first push
+git remote add origin master https://github.com/zhong635725959/droplook.git
+
+# push files
+git push origin master
