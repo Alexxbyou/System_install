@@ -19,4 +19,6 @@ wget https://download1.rstudio.org/rstudio-0.99.896-amd64.deb
 sudo gdebi -n rstudio-0.99.896-amd64.deb
 rm rstudio-0.99.896-amd64.deb
 
+###Installing RMySQL
+sudo apt-get install r-cran-rmysql
 
