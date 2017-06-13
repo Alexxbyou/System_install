@@ -15,3 +15,7 @@ git remote add origin master https://github.com/zhong635725959/droplook.git
 
 # push files
 git push origin master
+
+# clone sync
+git clone https://github.com/Alexxbyou/System_install
+

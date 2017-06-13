@@ -1,0 +1,80 @@
+########################################
+###### Rstudio Connect Notes
+
+
+
+##############################
+### Installation (Evo 45 Day trial)
+sudo apt-get install gdebi-core
+wget https://s3.amazonaws.com/rstudio-connect/ubuntu-12.04/x86_64/rstudio-connect-1.5.0-7-amd64.deb
+sudo gdebi rstudio-connect-1.5.0-7-amd64.deb
+
+### Remove and plurg
+sudo apt-get purge rstudio-connect
+
+# remove data
+sudo rm -r -f /opt/rstudio-connect
+sudo rm -r -f /var/lib/rstudio-connect 
+sudo rm -r -f /etc/rstudio-connect
+
+#############################
+# Admin account
+
+root D*****77
+user 12345678
+
+
+##############################
+### Server Architecture
+# Program folder
+/opt/rstudio-connect
+
+# Config file
+/etc/rstudio-connect/rstudio-connect.gcfg
+
+## Logs
+
+# Server log
+/var/log/rstudio-connect.log
+
+# Access log
+/var/log/rstudio-connect.access.log
+
+# App lo [in dashboard]
+
+
+
+
+
+##############################
+# Start & Stop RStudio Connect
+
+sudo systemctl start rstudio-connect
+sudo systemctl stop rstudio-connect
+
+# Reload the config but keep server running
+sudo systemctl kill -s HUP --kill-who=main rstudio-connect
+
+# Check Status
+sudo systemctl status rstudio-connect
+
+# Whether or not start at boot time
+sudo systemctl enable rstudio-connect
+sudo systemctl disable rstudio-connect
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
