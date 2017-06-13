@@ -1,0 +1,117 @@
+http://www.cnblogs.com/bovenson/p/5760856.html
+
+### Install JDK
+sudo mkdir /usr/lib/jvm
+
+# unzip
+sudo tar -xzvf jdk-8u91-linux-x64.tar.gz -C /usr/lib/jvm
+
+# rename
+cd /usr/lib/jvm
+sudo mv jdk1.8.0_91 jdk
+
+# config with env.var
+sudo vim /etc/profile
+# set var
+```
+export JAVA_HOME=/usr/lib/jvm/jdk
+export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$CLASSPATH
+export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
+```
+
+# validation
+source /etc/profile
+java -version
+
+
+
+
+
+### Install Scala
+sudo tar -xzvf scala-2.11.8.tgz -C /usr/local
+cd /usr/local
+sudo mv scala-2.11.8 scala
+sudo vim /etc/profile
+```
+export SCALA_HOME=/usr/local/scala
+export PATH=$SCALA_HOME/bin:$PATH
+```
+source /etc/profile
+scala -version
+
+
+
+
+
+
+### Install Hadoop
+sudo apt install openssh-server
+ssh-keygen -t rsa   # 一直回车
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+ssh localhost # 如果不提示输入密码则配置成功
+sudo tar -xzvf hadoop-2.7.2.tar.gz -C /usr/local
+cd /usr/local
+sudo mv hadoop-2.7.2 hadoop
+
+sudo vim /etc/profile
+```
+export HADOOP_HOME=/usr/local/hadoop
+export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
+```
+hadoop version
+
+# config Hadoop, see http://www.cnblogs.com/bovenson/p/5760856.html
+# Config YARNsee, http://www.cnblogs.com/bovenson/p/5760856.html
+
+
+### Install Spark
+sudo tar -zxf spark-2.0.0-bin-hadoop2.7.tgz -C /usr/local
+cd /usr/local
+sudo mv spark-2.0.0-bin-hadoop2.7 spark
+sudo vim /etc/profile
+# 在最后添加下面内容
+export SPARK_HOME=/usr/local/spark
+export PATH=$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
+cd /usr/local
+sudo chown -R yourusername:yourusername ./spark
+cd /usr/local/spark
+cp ./conf/spark-env.sh.template ./conf/spark-env.sh
+cd /usr/loca/spark
+vim ./conf/spark-env.sh
+# 添加下面一行
+export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
+export JAVA_HOME=/usr/lib/jvm/jdk
+
+/usr/local/spark/bin/run-example SparkPi 2>&1 | grep "Pi is roughly"
+/usr/local/spark/sbin/start-all.sh
+
+启动Hadoop以及Spark
+
+#!/bin/bash
+# 启动Hadoop以及yarn
+start-dfs.sh
+start-yarn.sh
+# 启动历史服务器
+mr-jobhistory-daemon.sh start historyserver
+# 启动Spark
+/usr/local/spark/sbin/start-all.sh
+
+停止Hadoop以及Spark
+
+#!/bin/bash
+# 停止Spark
+stop-dfs.sh
+stop-yarn.sh
+# 停止历史服务器
+mr-jobhistory-daemon.sh stop historyserver
+# 停止Hadoop以及yarn
+/usr/local/hadoop/sbin/stop-all.sh
+
+localhost:8080
+
+
+
+
+
+
+
