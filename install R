@@ -22,3 +22,22 @@ rm rstudio-0.99.896-amd64.deb
 ###Installing RMySQL
 sudo apt-get install r-cran-rmysql
 
+
+### install devtools
+sudo apt-get install libcurl4-openssl-dev libssl-dev
+sudo apt-get install -y libmariadb-client-lgpl-dev
+
+```in R
+install.packages("devtools")
+```
+
+
+### install DBI and RMySQL
+```in R
+devtools::install_github("rstats-db/DBI")
+devtools::install_github("rstats-db/RMySQL")
+```
+
+
+
+
