@@ -1,0 +1,19 @@
+sudo apt-get install gdebi-core
+sudo gdebi Downloads/rstudio-1.0.143-amd64.deb 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
