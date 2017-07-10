@@ -1,0 +1,13 @@
+http://linuxbsdos.com/2017/06/11/how-to-install-nvidia-geforce-gtx-1070-drivers-on-ubuntu-16-10-17-04/
+
+# Add the PPA
+ 
+sudo add-apt-repository ppa:graphics-drivers/ppa
+ 
+# Then update the package database
+ 
+sudo apt update
+ 
+# Finally, install proprietary Nvidia drivers
+ 
+sudo apt install nvidia-381

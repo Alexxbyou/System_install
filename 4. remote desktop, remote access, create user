@@ -1,0 +1,32 @@
+#########################################################
+# remote desktop from windows to ubuntu
+#########################################################
+http://www.makeuseof.com/tag/how-to-establish-simple-remote-desktop-access-between-ubuntu-and-windows/
+
+
+# install xrdp from ubuntu
+
+sudo apt-get install xrdp
+
+
+
+
+#########################################################
+# remote access to ubuntu via ssh using putty
+#########################################################
+https://askubuntu.com/questions/136671/how-to-login-into-a-ubuntu-machine-from-windows
+
+# ubuntu
+sudo apt-get install openssh-server openssh-client
+
+# windows
+## download PuTTY
+## IP, SSH->X11 setting access
+
+
+
+#########################################################
+# Create User
+#########################################################
+
+
